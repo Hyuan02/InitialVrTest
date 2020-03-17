@@ -18,10 +18,18 @@
             <a-asset-item id="exoItalicFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2Fexo2BlackItalic.typeface.json?1490305922725"></a-asset-item>
         </a-assets>
         <a-sky src="#sky" rotation="0 -90 0"></a-sky>
-        <a-box color="purple" depth="0.2" height="2.25" width="4" position="0 4 -7">
+        <a-box color="purple" metalness="0.5" depth="0.2" height="2.25" width="4" position="0 4 -7" src="Assets/metal_galvanized.jpg">
             <a-circle position="1 0 0.11" scale="0.8 0.8 0.8"></a-circle>
             <a-circle position="-1 0 0.11" scale="0.8 0.8 0.8"></a-circle>
         </a-box>
+        <a-entity geometry="primitive: ring" material="shader: standard; color:purple;" position="-4, 3.6, -6">
+            <a-cone scale="0.5 0.6 0.1" radius-bottom="0.5" rotation="0 0 90" position="-0.3 0 0">
+            </a-cone>
+        </a-entity>
+        <a-entity geometry="primitive: ring" material="shader: standard; color:purple;" position="4, 3.6, -6" scale="-1 1 1">
+            <a-cone scale="0.5 0.6 0.1" radius-bottom="0.5" rotation="0 0 90" position="-0.3 0 0">
+            </a-cone>
+        </a-entity>
         <a-entity
         geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
         material="src: #grid; repeat: 10000 10000; transparent: true;metalness:0.6; roughness: 0.4; sphericalEnvMap: #sky;"></a-entity>
