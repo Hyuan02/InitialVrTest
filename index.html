@@ -21,28 +21,46 @@
         </a-assets>
         <a-sky src="#sky" rotation="0 -90 0"></a-sky>
         <a-entity id="boxes">
-            <a-box color="purple" metalness="0.5" depth="0.2" height="2.25" width="4" position="4 4 -12" src="Assets/metal_galvanized.jpg">
-                <a-circle position="1 0 0.11" scale="0.8 0.8 0.8"></a-circle>
-                <a-circle position="-1 0 0.11" scale="0.8 0.8 0.8"></a-circle>
-            </a-box>
-            <a-box color="red" metalness="0.5" depth="0.2" height="2.25" width="4" position="0 4 -7" src="Assets/metal_galvanized.jpg">
-                <a-circle position="1 0 0.11" scale="0.8 0.8 0.8"></a-circle>
-                <a-circle position="-1 0 0.11" scale="0.8 0.8 0.8"></a-circle>
-            </a-box>
-            <a-box color="blue" metalness="0.5" depth="0.2" height="2.25" width="4" position="-4 4 -12" src="Assets/metal_galvanized.jpg">
-                <a-circle position="1 0 0.11" scale="0.8 0.8 0.8"></a-circle>
-                <a-circle position="-1 0 0.11" scale="0.8 0.8 0.8"></a-circle>
-            </a-box>
+            <a-entity shaderhide position="4 2 -12">
+                <a-entity geometry="primitive: plane" scale="4.5 4.5 1" rotation="90 0 0" position="-0.028 2.990 -5.000"></a-entity>
+                <a-entity geometry="primitive: plane" scale="4.5 4.5 1" rotation="90 0 0" material="side: double;" position="-0.028 -0.990 -5.000"></a-entity>
+                <a-entity geometry="primitive: plane" rotation="0 -90 0" scale="4.5 4.5 1" position="1.992 0.97 -5.029"></a-entity>
+                <a-entity geometry="primitive: plane" rotation="0 -90 0" scale="4.5 4.5 1" material="side: double;" position="-1.991 0.97 -5.029"></a-entity>
+                <a-box id="insideOn" position="0 1 -5" material="color: red;" scale="0.5 0.5 0.5" animation="property: rotation; to:0 360 0; loop:true; easing:linear;">
+                </a-box>
+                <a-box id="invisibleBox2" material="side:back; color:#ccc;" position="0 1 -5" scale="3.9 3.9 3.9">
+                </a-box>
+            </a-entity>
+            <a-entity shaderhide position="0 2 -7">
+                <a-entity geometry="primitive: plane" scale="4.5 4.5 1" rotation="90 0 0" position="-0.028 2.990 -5.000"></a-entity>
+                <a-entity geometry="primitive: plane" scale="4.5 4.5 1" rotation="90 0 0" material="side: double;" position="-0.028 -0.990 -5.000"></a-entity>
+                <a-entity geometry="primitive: plane" rotation="0 -90 0" scale="4.5 4.5 1" position="1.992 0.97 -5.029"></a-entity>
+                <a-entity geometry="primitive: plane" rotation="0 -90 0" scale="4.5 4.5 1" material="side: double;" position="-1.991 0.97 -5.029"></a-entity>
+                <a-box id="insideOn" position="0 1 -5" material="color: blue;" scale="0.5 0.5 0.5">
+                </a-box>
+                <a-box id="invisibleBox2" material="side:back; color:#ccc;" position="0 1 -5" scale="3.9 3.9 3.9">
+                </a-box>
+            </a-entity>
+            <a-entity shaderhide position="-4 2 -12">
+                <a-entity geometry="primitive: plane" scale="4.5 4.5 1" rotation="90 0 0" position="-0.028 2.990 -5.000"></a-entity>
+                <a-entity geometry="primitive: plane" scale="4.5 4.5 1" rotation="90 0 0" material="side: double;" position="-0.028 -0.990 -5.000"></a-entity>
+                <a-entity geometry="primitive: plane" rotation="0 -90 0" scale="4.5 4.5 1" position="1.992 0.97 -5.029"></a-entity>
+                <a-entity geometry="primitive: plane" rotation="0 -90 0" scale="4.5 4.5 1" material="side: double;" position="-1.991 0.97 -5.029"></a-entity>
+                <a-sphere id="insideOn" position="0 1 -6.5" material="color: yellow;" scale="0.5 0.5 0.5" animation="property:position; to:1.3 1 -3.5; loop:true; dir:alternate;">
+                </a-sphere>
+                <a-box id="invisibleBox2" material="side:back; color:#ccc;" position="0 1 -5" scale="3.9 3.9 3.9">
+                </a-box>
+            </a-entity>
         </a-entity>
         
 
 
 
-        <a-entity geometry="primitive: circle" material="shader: standard; color:purple;" position="-4, 3.6, -6" changepositiononprevious>
+        <a-entity geometry="primitive: circle" material="shader: standard; color:purple; side:double;" position="-4, 3.6, -6" class="clickable" changepositiononprevious>
             <a-cone scale="0.5 0.6 0.1" radius-bottom="0.5" rotation="0 0 90" position="-0.3 0 0">
             </a-cone>
         </a-entity>
-        <a-entity geometry="primitive: circle" material="shader: standard; color:yellow;" position="4, 3.6, -6" scale="-1 1 1" changepositiononnext>
+        <a-entity geometry="primitive: circle" material="shader: standard; color:yellow; side:double;" position="4, 3.6, -6" class="clickable" scale="-1 1 1" changepositiononnext>
             <a-cone scale="0.5 0.6 0.1" radius-bottom="0.5" rotation="0 0 90" position="-0.3 0 0">
             </a-cone>
         </a-entity>
@@ -61,7 +79,7 @@
                 to: 1 1 1;
                 dur: 1000;
                 easing: linear;
-                startEvents: mouseleave"></a-cursor>
+                startEvents: mouseleave" raycaster="objects: .clickable"></a-cursor>
         </a-camera>
         
         
